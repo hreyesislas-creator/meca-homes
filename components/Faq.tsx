@@ -1,7 +1,11 @@
-import { faqs, site } from "@/lib/site";
+"use client";
+
+import { site } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 
 export default function Faq() {
+  const { t } = useI18n();
   return (
     <section
       id="faq"
@@ -11,23 +15,21 @@ export default function Faq() {
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal className="text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-steel">
-            Questions, Answered
+            {t.faq.eyebrow}
           </span>
           <h2
             id="faq-heading"
             className="mt-4 font-display text-3xl font-semibold leading-tight text-navy text-balance sm:text-4xl lg:text-5xl"
           >
-            Custom Home Building FAQs
+            {t.faq.title}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink/70">
-            Common questions about building a luxury custom home in Miami and
-            South Florida — from cost and timelines to permitting, site work,
-            and utility connections.
+            {t.faq.intro}
           </p>
         </Reveal>
 
         <div className="mt-12 divide-y divide-navy/10 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-card">
-          {faqs.map((faq, i) => (
+          {t.faq.items.map((faq, i) => (
             <details
               key={i}
               className="group px-6 py-5 transition-colors open:bg-navy/[0.02] sm:px-8"
@@ -60,19 +62,20 @@ export default function Faq() {
 
         <Reveal className="mt-10 text-center">
           <p className="text-[15px] text-ink/65">
-            Still have questions about your project?{" "}
+            {t.faq.closingLead}
             <a
               href={site.phoneHref}
               className="font-semibold text-steel underline-offset-4 hover:underline"
             >
-              Call {site.phone}
-            </a>{" "}
-            or{" "}
+              {t.faq.closingCallPrefix}
+              {site.phone}
+            </a>
+            {t.faq.closingOr}
             <a
               href="#contact"
               className="font-semibold text-steel underline-offset-4 hover:underline"
             >
-              request a consultation
+              {t.faq.closingLink}
             </a>
             .
           </p>

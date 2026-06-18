@@ -1,15 +1,13 @@
+"use client";
+
 import { site } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 import LeadForm from "./LeadForm";
 import { PhoneIcon, MailIcon, WhatsAppIcon, CheckIcon } from "./Icons";
 
-const assurances = [
-  "Direct response from our team",
-  "No-obligation project review",
-  "Clear next steps within days",
-];
-
 export default function Contact() {
+  const { t } = useI18n();
   return (
     <section id="contact" className="relative overflow-hidden bg-navy py-24 sm:py-32">
       <div className="absolute inset-0 bg-grid opacity-25" />
@@ -19,20 +17,18 @@ export default function Contact() {
         {/* Left — info */}
         <Reveal className="lg:sticky lg:top-28">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            Request a Consultation
+            {t.contact.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white text-balance sm:text-4xl lg:text-5xl">
-            Let&apos;s build something extraordinary.
+            {t.contact.headline}
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-white/70">
-            Share your project anywhere in Miami or South Florida and our team
-            will follow up with a tailored path forward — from feasibility to
-            final walkthrough.
+            {t.contact.description}
           </p>
 
           <ul className="mt-8 space-y-3">
-            {assurances.map((a) => (
-              <li key={a} className="flex items-center gap-3 text-white/85">
+            {t.contact.assurances.map((a, i) => (
+              <li key={i} className="flex items-center gap-3 text-white/85">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/15 text-gold">
                   <CheckIcon className="h-3.5 w-3.5" />
                 </span>
@@ -51,7 +47,7 @@ export default function Contact() {
               </span>
               <span>
                 <span className="block text-xs uppercase tracking-wide text-white/50">
-                  Call us
+                  {t.contact.callUs}
                 </span>
                 <span className="block text-lg font-semibold text-white">
                   {site.phone}
@@ -68,7 +64,7 @@ export default function Contact() {
               </span>
               <span>
                 <span className="block text-xs uppercase tracking-wide text-white/50">
-                  Email us
+                  {t.contact.emailUs}
                 </span>
                 <span className="block text-lg font-semibold text-white">
                   {site.email}
@@ -87,10 +83,10 @@ export default function Contact() {
               </span>
               <span>
                 <span className="block text-xs uppercase tracking-wide text-white/50">
-                  Message us
+                  {t.contact.messageUs}
                 </span>
                 <span className="block text-lg font-semibold text-white">
-                  WhatsApp
+                  {t.contact.whatsapp}
                 </span>
               </span>
             </a>

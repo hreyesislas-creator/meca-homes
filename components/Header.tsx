@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import { PhoneIcon } from "./Icons";
 import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -32,8 +35,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-3" aria-label="Meca Homes home">
-          <Logo className="h-9 w-auto text-white" />
+        <a href="#top" className="flex items-center gap-3" aria-label={t.a11y.homeLink}>
+          <Logo className="h-9 w-auto text-white" tagline={t.brand.tagline} />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
@@ -43,13 +46,14 @@ export default function Header() {
               href={item.href}
               className="group relative text-sm font-medium tracking-wide text-white/85 transition-colors hover:text-white"
             >
-              {item.label}
+              {t.nav[item.key]}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex xl:gap-4">
+          <LanguageSwitcher variant="light" />
           <a
             href={site.phoneHref}
             className="flex items-center gap-2 text-sm font-semibold text-white/90 transition-colors hover:text-gold"
@@ -61,18 +65,20 @@ export default function Header() {
             href="#contact"
             className="rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy shadow-[0_8px_24px_-8px_rgba(245,230,74,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
           >
-            Request a Consultation
+            {t.header.cta}
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-white lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          <span className="sr-only">Menu</span>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher variant="light" />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-white"
+            aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
+            aria-expanded={open}
+          >
+            <span className="sr-only">{t.a11y.menu}</span>
           <div className="flex w-6 flex-col gap-1.5">
             <span
               className={`h-0.5 w-full bg-current transition-all duration-300 ${
@@ -90,7 +96,8 @@ export default function Header() {
               }`}
             />
           </div>
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -108,7 +115,7 @@ export default function Header() {
               className="border-b border-white/10 py-4 font-display text-3xl text-white transition-transform duration-300 hover:translate-x-2 hover:text-gold"
               style={{ transitionDelay: open ? `${i * 50}ms` : "0ms" }}
             >
-              {item.label}
+              {t.nav[item.key]}
             </a>
           ))}
           <div className="mt-8 flex flex-col gap-3">
@@ -117,14 +124,14 @@ export default function Header() {
               className="flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-semibold text-white"
             >
               <PhoneIcon className="h-5 w-5" />
-              {site.phone}
+              {t.common.call} {site.phone}
             </a>
             <a
               href="#contact"
               onClick={() => setOpen(false)}
               className="rounded-full bg-gold px-6 py-3.5 text-center font-semibold text-navy"
             >
-              Request a Consultation
+              {t.header.cta}
             </a>
           </div>
         </div>

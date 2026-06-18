@@ -1,20 +1,22 @@
-import { processSteps } from "@/lib/site";
+"use client";
+
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 
 export default function Process() {
+  const { t } = useI18n();
   return (
     <section id="process" className="bg-offwhite py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-steel">
-            Our Process
+            {t.process.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-navy text-balance sm:text-4xl lg:text-5xl">
-            A Streamlined Path to Building Your Custom Home
+            {t.process.title}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink/70">
-            Six deliberate stages — each managed in-house — keep your project
-            transparent, on schedule, and true to your vision.
+            {t.process.intro}
           </p>
         </Reveal>
 
@@ -23,9 +25,9 @@ export default function Process() {
           <div className="absolute left-0 top-[2.1rem] hidden h-px w-full bg-gradient-to-r from-transparent via-steel/40 to-transparent lg:block" />
 
           <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4">
-            {processSteps.map((step, i) => (
+            {t.process.steps.map((step, i) => (
               <Reveal
-                key={step.title}
+                key={i}
                 as="li"
                 delay={i * 90}
                 className="relative flex flex-col items-center text-center lg:items-start lg:text-left"

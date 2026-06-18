@@ -1,18 +1,21 @@
-import { nav, services, site, areasServed } from "@/lib/site";
+"use client";
+
+import { nav, services, site, areaNames } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Logo from "./Logo";
 import { PhoneIcon, MailIcon } from "./Icons";
 
 export default function Footer() {
+  const { t } = useI18n();
+  const year = new Date().getFullYear();
   return (
     <footer className="bg-navy-deep text-white/70">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.1fr_1fr]">
           <div>
-            <Logo className="h-10 w-auto text-white" />
+            <Logo className="h-10 w-auto text-white" tagline={t.brand.tagline} />
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed">
-              Luxury custom home builders in Miami &amp; South Florida —
-              delivering design-build, turn-key construction, site work, shell
-              construction, and residential utility connections.
+              {t.footer.description}
             </p>
             <div className="mt-6 flex flex-col gap-2">
               <a
@@ -34,7 +37,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-              Explore
+              {t.footer.exploreHeading}
             </h4>
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
@@ -43,7 +46,7 @@ export default function Footer() {
                     href={item.href}
                     className="text-[15px] transition-colors hover:text-gold"
                   >
-                    {item.label}
+                    {t.nav[item.key]}
                   </a>
                 </li>
               ))}
@@ -52,16 +55,16 @@ export default function Footer() {
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-              Services
+              {t.footer.servicesHeading}
             </h4>
             <ul className="mt-5 space-y-3">
-              {services.map((s) => (
+              {services.map((s, i) => (
                 <li key={s.id}>
                   <a
                     href={`#${s.anchor}`}
                     className="text-[15px] transition-colors hover:text-gold"
                   >
-                    {s.title}
+                    {t.services.items[i].title}
                   </a>
                 </li>
               ))}
@@ -70,16 +73,16 @@ export default function Footer() {
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-              Areas Served
+              {t.footer.areasHeading}
             </h4>
             <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-1 lg:grid-cols-2">
-              {areasServed.map((area) => (
-                <li key={area.name}>
+              {areaNames.map((name) => (
+                <li key={name}>
                   <a
                     href="#service-areas"
                     className="text-[15px] transition-colors hover:text-gold"
                   >
-                    {area.name}
+                    {name}
                   </a>
                 </li>
               ))}
@@ -89,20 +92,14 @@ export default function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8">
           <p className="text-sm text-white/50">
-            <span className="font-semibold text-white/70">
-              Custom home builders serving South Florida:
-            </span>{" "}
-            Proudly building luxury custom homes across Miami, Coral Gables,
-            Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral,
-            Weston, and Fort Lauderdale.
+            <span className="font-semibold text-white/70">{t.footer.seoLead}</span>{" "}
+            {t.footer.seoBody}
           </p>
           <div className="mt-6 flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
             <p>
-              © {new Date().getFullYear()} {site.name}. All rights reserved.
+              © {year} {site.name}. {t.footer.rights}
             </p>
-            <p className="text-white/40">
-              {site.positioning} · {site.region}
-            </p>
+            <p className="text-white/40">{t.footer.positioning}</p>
           </div>
         </div>
       </div>

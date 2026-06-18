@@ -1,8 +1,12 @@
+"use client";
+
 import { services } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 import { ServiceIcon, ArrowIcon } from "./Icons";
 
 export default function Services() {
+  const { t } = useI18n();
   return (
     <section
       id="services"
@@ -15,16 +19,13 @@ export default function Services() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-            What We Build
+            {t.services.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white text-balance sm:text-4xl lg:text-5xl">
-            Specialized services for high-end residential construction in South
-            Florida.
+            {t.services.headline}
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-white/70">
-            From full design-build engagements in Miami to specialized utility
-            work across the region, every service is delivered with the
-            precision a luxury home demands.
+            {t.services.intro}
           </p>
         </Reveal>
 
@@ -43,20 +44,20 @@ export default function Services() {
               </div>
 
               <h3 className="mt-6 font-display text-xl font-semibold text-white">
-                {service.title}
+                {t.services.items[i].title}
               </h3>
               <p className="mt-1.5 text-sm font-semibold uppercase tracking-wide text-gold/90">
-                {service.headline}
+                {t.services.items[i].headline}
               </p>
               <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white/70">
-                {service.copy}
+                {t.services.items[i].copy}
               </p>
 
               <a
                 href={`#${service.anchor}`}
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-gold"
               >
-                Explore this service
+                {t.services.exploreCta}
                 <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </Reveal>
@@ -69,17 +70,16 @@ export default function Services() {
             className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-gold to-gold-deep p-7 text-navy"
           >
             <h3 className="font-display text-2xl font-semibold leading-snug">
-              Not sure where your project fits?
+              {t.services.ctaCardTitle}
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-navy/80">
-              Tell us about your vision and we&apos;ll guide you to the right
-              scope and the next step.
+              {t.services.ctaCardBody}
             </p>
             <a
               href="#contact"
               className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-deep"
             >
-              Request a Consultation
+              {t.services.ctaCardCta}
               <ArrowIcon className="h-4 w-4" />
             </a>
           </Reveal>

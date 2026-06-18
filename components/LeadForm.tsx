@@ -2,35 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { site } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 import { ArrowIcon, CheckIcon, LockIcon } from "./Icons";
-
-const projectTypes = [
-  "New Custom Home",
-  "Design-Build",
-  "Turn-Key Construction",
-  "Site Work / Shell",
-  "Sewer Lateral Connection",
-  "Wet Tapping",
-  "Other / Not Sure",
-];
-
-const budgets = [
-  "Under $500K",
-  "$500K – $1M",
-  "$1M – $2M",
-  "$2M – $5M",
-  "$5M+",
-  "To be determined",
-];
-
-const timelines = [
-  "Ready to start",
-  "1 – 3 months",
-  "3 – 6 months",
-  "6 – 12 months",
-  "Just exploring",
-];
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -38,26 +12,36 @@ const fieldBase =
   "w-full rounded-lg border border-navy/15 bg-white px-4 py-3 text-[15px] text-ink shadow-sm outline-none transition-colors placeholder:text-ink/40 focus:border-steel focus:ring-2 focus:ring-steel/25";
 
 export default function LeadForm() {
+  const { t } = useI18n();
+  const f = t.form;
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    setError("");
 
     const form = e.currentTarget;
     const fd = new FormData(form);
     const payload = {
-      name: String(fd.get("name") ?? ""),
-      phone: String(fd.get("phone") ?? ""),
-      email: String(fd.get("email") ?? ""),
+      name: String(fd.get("name") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
       projectType: String(fd.get("projectType") ?? ""),
       location: String(fd.get("location") ?? ""),
       budget: String(fd.get("budget") ?? ""),
       timeline: String(fd.get("timeline") ?? ""),
       details: String(fd.get("details") ?? ""),
     };
+
+    // Client-side validation with localized message.
+    if (!payload.name || !payload.phone || !payload.email) {
+      setStatus("error");
+      setError(f.errorRequired);
+      return;
+    }
+
+    setStatus("loading");
+    setError("");
 
     try {
       const res = await fetch("/api/lead", {
@@ -66,16 +50,14 @@ export default function LeadForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) {
-        const data = (await res.json().catch(() => null)) as
-          | { error?: string }
-          | null;
-        throw new Error(data?.error ?? "Something went wrong.");
+        // Server messages are English; show the localized equivalent.
+        throw new Error(res.status === 422 ? f.errorRequired : f.errorGeneric);
       }
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(err instanceof Error ? err.message : f.errorGeneric);
     }
   }
 
@@ -86,22 +68,21 @@ export default function LeadForm() {
           <CheckIcon className="h-8 w-8" />
         </div>
         <h3 className="mt-6 font-display text-2xl font-semibold text-navy">
-          Thank you — your request is in.
+          {f.successTitle}
         </h3>
         <p className="mt-3 max-w-md text-ink/70">
-          We&apos;ll review your project details and contact you shortly with
-          the next steps. For anything urgent, call{" "}
+          {f.successBodyLead}
           <a href={site.phoneHref} className="font-semibold text-steel">
             {site.phone}
           </a>
-          .
+          {f.successBodyTail}
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-8 text-sm font-semibold text-steel underline-offset-4 hover:underline"
         >
-          Submit another request
+          {f.submitAnother}
         </button>
       </div>
     );
@@ -114,77 +95,77 @@ export default function LeadForm() {
     >
       <div className="mb-7 border-b border-navy/10 pb-6">
         <h3 className="font-display text-xl font-semibold text-navy">
-          Start your project
+          {f.header}
         </h3>
         <p className="mt-1.5 text-sm text-ink/60">
-          Tell us a few details and our team will prepare your next steps.
-          Fields marked <span className="font-semibold text-steel">*</span> are
-          required.
+          {f.introLead}
+          <span className="font-semibold text-steel">*</span>
+          {f.introTail}
         </p>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Full Name" required>
+        <Field label={f.labels.name} required>
           <input
             name="name"
             type="text"
             required
             autoComplete="name"
-            placeholder="Jane Doe"
+            placeholder={f.placeholders.name}
             className={fieldBase}
           />
         </Field>
 
-        <Field label="Phone" required>
+        <Field label={f.labels.phone} required>
           <input
             name="phone"
             type="tel"
             required
             autoComplete="tel"
-            placeholder="(786) 300-1441"
+            placeholder={f.placeholders.phone}
             className={fieldBase}
           />
         </Field>
 
-        <Field label="Email" required>
+        <Field label={f.labels.email} required>
           <input
             name="email"
             type="email"
             required
             autoComplete="email"
-            placeholder="you@email.com"
+            placeholder={f.placeholders.email}
             className={fieldBase}
           />
         </Field>
 
-        <Field label="Project Type">
+        <Field label={f.labels.projectType}>
           <select name="projectType" defaultValue="" className={fieldBase}>
             <option value="" disabled>
-              Select a service
+              {f.selectServiceDefault}
             </option>
-            {projectTypes.map((t) => (
-              <option key={t} value={t}>
-                {t}
+            {f.projectTypes.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
               </option>
             ))}
           </select>
         </Field>
 
-        <Field label="City / Property Location">
+        <Field label={f.labels.location}>
           <input
             name="location"
             type="text"
-            placeholder="Miami, FL"
+            placeholder={f.placeholders.location}
             className={fieldBase}
           />
         </Field>
 
-        <Field label="Budget Range">
+        <Field label={f.labels.budget}>
           <select name="budget" defaultValue="" className={fieldBase}>
             <option value="" disabled>
-              Select a range
+              {f.selectRangeDefault}
             </option>
-            {budgets.map((b) => (
+            {f.budgets.map((b) => (
               <option key={b} value={b}>
                 {b}
               </option>
@@ -192,31 +173,31 @@ export default function LeadForm() {
           </select>
         </Field>
 
-        <Field label="Timeline" className="sm:col-span-2">
+        <Field label={f.labels.timeline} className="sm:col-span-2">
           <div className="flex flex-wrap gap-2.5">
-            {timelines.map((t, i) => (
+            {f.timelines.map((opt, i) => (
               <label
-                key={t}
+                key={opt}
                 className="cursor-pointer rounded-full border border-navy/15 bg-offwhite px-4 py-2 text-sm font-medium text-navy transition-colors has-[:checked]:border-navy has-[:checked]:bg-navy has-[:checked]:text-white"
               >
                 <input
                   type="radio"
                   name="timeline"
-                  value={t}
+                  value={opt}
                   defaultChecked={i === 0}
                   className="sr-only"
                 />
-                {t}
+                {opt}
               </label>
             ))}
           </div>
         </Field>
 
-        <Field label="Project Details" className="sm:col-span-2">
+        <Field label={f.labels.details} className="sm:col-span-2">
           <textarea
             name="details"
             rows={4}
-            placeholder="Tell us about your lot, vision, square footage, or any specifics that will help us prepare."
+            placeholder={f.placeholders.details}
             className={`${fieldBase} resize-none`}
           />
         </Field>
@@ -233,18 +214,16 @@ export default function LeadForm() {
         disabled={status === "loading"}
         className="group mt-7 flex w-full items-center justify-center gap-2.5 rounded-full bg-gold px-8 py-4 text-base font-semibold text-navy shadow-[0_18px_40px_-14px_rgba(245,230,74,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy hover:text-white disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {status === "loading" ? "Sending…" : "Request My Consultation"}
+        {status === "loading" ? f.submitting : f.submit}
         {status !== "loading" && (
           <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         )}
       </button>
 
-      <p className="mt-4 text-center text-sm text-ink/60">
-        We&apos;ll review your project and contact you with the next steps.
-      </p>
+      <p className="mt-4 text-center text-sm text-ink/60">{f.microcopy}</p>
       <p className="mt-2 flex items-center justify-center gap-1.5 text-center text-xs text-ink/45">
         <LockIcon className="h-3.5 w-3.5" />
-        Your information is kept private and is never shared.
+        {f.privacy}
       </p>
     </form>
   );

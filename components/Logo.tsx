@@ -1,4 +1,10 @@
-export default function Logo({ className = "h-9 w-auto" }: { className?: string }) {
+export default function Logo({
+  className = "h-9 w-auto",
+  tagline = "Luxury Builders",
+}: {
+  className?: string;
+  tagline?: string;
+}) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <svg
@@ -37,7 +43,7 @@ export default function Logo({ className = "h-9 w-auto" }: { className?: string 
           MECA HOMES
         </span>
         <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-current/60">
-          Luxury Builders
+          {tagline}
         </span>
       </span>
     </span>

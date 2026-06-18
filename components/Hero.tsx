@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { useI18n } from "@/lib/i18n/LanguageProvider";
 import { ArrowIcon, PhoneIcon } from "./Icons";
 
 export default function Hero() {
+  const { t } = useI18n();
   return (
     <section
       id="top"
@@ -12,7 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
-          alt="Luxury custom home built by Meca Homes in South Florida with modern architecture and manicured landscaping"
+          alt={t.hero.imageAlt}
           fill
           priority
           sizes="100vw"
@@ -32,14 +36,14 @@ export default function Hero() {
           <div className="reveal is-visible mb-6 inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-              Luxury &amp; Custom Home Builders · {site.region}
+              {t.hero.badge}
             </span>
           </div>
 
           <h1 className="font-display text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.01em] text-white text-balance sm:text-6xl lg:text-[5rem]">
-            Luxury Custom Homes Built From{" "}
+            {t.hero.headlineLead}
             <span className="relative whitespace-nowrap text-gold">
-              Vision
+              {t.hero.headlineHighlight}
               <svg
                 className="absolute -bottom-2 left-0 h-2.5 w-full text-gold/70"
                 viewBox="0 0 200 12"
@@ -54,15 +58,12 @@ export default function Hero() {
                   strokeLinecap="round"
                 />
               </svg>
-            </span>{" "}
-            to Completion
+            </span>
+            {t.hero.headlineTail}
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
-            Meca Homes are luxury custom home builders serving Miami and South
-            Florida — delivering design-build, turn-key construction, site work,
-            shell construction, and residential utility connections under one
-            accountable team.
+            {t.hero.subhead}
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -70,7 +71,7 @@ export default function Hero() {
               href="#contact"
               className="group flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-semibold text-navy shadow-[0_18px_40px_-12px_rgba(245,230,74,0.55)] transition-all duration-300 hover:-translate-y-1 hover:bg-white"
             >
-              Request a Consultation
+              {t.hero.ctaPrimary}
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
@@ -78,17 +79,13 @@ export default function Hero() {
               className="group flex items-center justify-center gap-2.5 rounded-full border border-white/30 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/60 hover:bg-white/10"
             >
               <PhoneIcon className="h-5 w-5 text-gold" />
-              Call {site.phone}
+              {t.common.call} {site.phone}
             </a>
           </div>
 
           {/* Mini stats */}
           <div className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
-            {[
-              { k: "Single", v: "Point of Responsibility" },
-              { k: "Design", v: "to Final Walkthrough" },
-              { k: "South FL", v: "Residential Specialists" },
-            ].map((s) => (
+            {t.hero.stats.map((s) => (
               <div key={s.k}>
                 <div className="font-display text-xl font-semibold text-gold sm:text-2xl">
                   {s.k}
@@ -104,7 +101,9 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <div className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 sm:flex">
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">
+          {t.hero.scroll}
+        </span>
         <span className="h-10 w-px bg-gradient-to-b from-white/60 to-transparent" />
       </div>
     </section>

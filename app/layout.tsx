@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
-import { site, services, faqs } from "@/lib/site";
+import { site, services } from "@/lib/site";
+import { translations } from "@/lib/i18n/translations";
+import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 import "./globals.css";
+
+// English is the default/canonical content used for static SEO + schema.
+const en = translations.en;
 
 const sans = Inter({
   subsets: ["latin"],
@@ -40,10 +45,16 @@ export const metadata: Metadata = {
   creator: "Meca Homes",
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      es: "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: "es_ES",
     url: site.url,
     siteName: "Meca Homes",
     title: "Meca Homes | Luxury Custom Home Builders in South Florida",
@@ -155,12 +166,12 @@ const jsonLd = {
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Custom Home Building Services",
-        itemListElement: services.map((s) => ({
+        itemListElement: services.map((s, i) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: s.title,
-            description: s.copy,
+            name: en.services.items[i].title,
+            description: en.services.items[i].copy,
             url: `${site.url}/#${s.anchor}`,
             areaServed: "South Florida",
             provider: { "@id": `${site.url}/#business` },
@@ -171,7 +182,21 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       "@id": `${site.url}/#faq`,
-      mainEntity: faqs.map((f) => ({
+      inLanguage: "en-US",
+      mainEntity: en.faq.items.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.a,
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${site.url}/#faq-es`,
+      inLanguage: "es",
+      mainEntity: translations.es.faq.items.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: {
@@ -193,7 +218,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

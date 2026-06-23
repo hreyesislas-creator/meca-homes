@@ -109,7 +109,7 @@ const jsonLd = {
       url: site.url,
       email: site.email,
       description: businessDescription,
-      logo: `${site.url}/og-image.jpg`,
+      logo: `${site.url}/icon.png`,
       slogan: "Custom Homes Built From Vision to Completion",
       contactPoint: {
         "@type": "ContactPoint",
@@ -145,7 +145,7 @@ const jsonLd = {
       email: site.email,
       telephone: "+1-786-300-1441",
       priceRange: "$$$$",
-      image: `${site.url}/og-image.jpg`,
+      image: `${site.url}/opengraph-image.png`,
       parentOrganization: { "@id": `${site.url}/#organization` },
       address: {
         "@type": "PostalAddress",

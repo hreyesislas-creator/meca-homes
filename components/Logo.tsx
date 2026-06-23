@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
 export default function Logo({
   className = "h-9 w-auto",
   tagline = "Luxury Builders",
@@ -5,6 +10,28 @@ export default function Logo({
   className?: string;
   tagline?: string;
 }) {
+  // File-based logo (public/logo.svg). If the file is missing or fails to load,
+  // we gracefully fall back to the original code-generated logo below.
+  const [useFallback, setUseFallback] = useState(false);
+
+  if (!useFallback) {
+    return (
+      <span className={`inline-flex items-center ${className}`}>
+        <Image
+          src="/logo.svg"
+          alt="Meca Homes"
+          width={640}
+          height={160}
+          priority
+          unoptimized
+          onError={() => setUseFallback(true)}
+          className="h-full w-auto"
+        />
+      </span>
+    );
+  }
+
+  // Fallback: original inline SVG + text wordmark (uses currentColor for text).
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <svg

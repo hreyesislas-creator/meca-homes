@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" fill="none" role="img" aria-label="Meca Homes">
+  <!-- Icon mark: rounded square + stylized roofline "M" (scaled from the original 40x40 mark) -->
+  <g transform="translate(16,16) scale(3.2)">
+    <rect x="1" y="1" width="38" height="38" rx="9" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5"/>
+    <path d="M9 28V15l6 6 5-9 5 9 6-6v13" stroke="#f5e64a" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9 31h22" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="170" y="82" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="600" letter-spacing="2" fill="#ffffff">MECA HOMES</text>
+  <text x="172" y="112" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="500" letter-spacing="6.5" fill="#ffffff" fill-opacity="0.6">LUXURY BUILDERS</text>
+</svg>

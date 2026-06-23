@@ -13,7 +13,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.1fr_1fr]">
           <div>
-            <Logo className="h-10 w-auto text-white" tagline={t.brand.tagline} />
+            <Logo
+              className="h-12 w-auto max-w-[280px]"
+              tagline={t.brand.tagline}
+            />
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed">
               {t.footer.description}
             </p>

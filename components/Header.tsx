@@ -36,7 +36,10 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-3" aria-label={t.a11y.homeLink}>
-          <Logo className="h-9 w-auto text-white" tagline={t.brand.tagline} />
+          <Logo
+            className="h-10 w-auto max-w-[220px] lg:h-11 lg:max-w-[260px]"
+            tagline={t.brand.tagline}
+          />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8">

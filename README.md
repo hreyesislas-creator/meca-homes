@@ -31,7 +31,7 @@ app/
   sitemap.ts        /sitemap.xml
   robots.ts         /robots.txt
   api/lead/route.ts Lead form endpoint (validates; logs lead — ready to wire to email/CRM)
-components/         Header, Hero, TrustStrip, About, Services, Process,
+components/         Header, Hero, About, Services, Process,
                    Gallery, Contact, LeadForm, Footer, FloatingActions, Logo, Icons, Reveal
 lib/site.ts         Single source of truth: company info, services, process, gallery
 ```

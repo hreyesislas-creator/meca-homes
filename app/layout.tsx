@@ -24,21 +24,23 @@ const display = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Meca Homes | Luxury Custom Home Builders in South Florida",
+    default: "Meca Homes | Custom Home Builders in South Florida",
     template: "%s | Meca Homes",
   },
   description:
-    "Meca Homes are luxury custom home builders in South Florida, serving Miami and surrounding communities with design-build, turn-key construction, site work, shell construction, residential sewer lateral connections, and wet tapping.",
+    "Meca Homes are custom home builders serving South Florida — Miami-Dade, Broward, and Palm Beach — with design-build, turn-key construction, site work and shell construction, residential sewer lateral connections, and wet tapping.",
   keywords: [
-    "luxury custom home builders South Florida",
-    "custom home builders Miami",
+    "custom home builders South Florida",
+    "custom home builders Miami-Dade",
     "design build contractor South Florida",
-    "turn-key construction Miami",
-    "shell construction South Florida",
-    "site work contractor Miami",
-    "residential sewer lateral connections Miami",
+    "turn-key construction South Florida",
+    "site work and shell construction South Florida",
+    "shell construction Broward",
+    "custom home builders Palm Beach",
+    "custom home builders Boca Raton",
+    "custom home builders West Palm Beach",
+    "residential sewer lateral connections Miami-Dade",
     "wet tapping contractor South Florida",
-    "luxury home builders Miami-Dade",
     "residential construction South Florida",
   ],
   authors: [{ name: "Meca Homes" }],
@@ -57,15 +59,15 @@ export const metadata: Metadata = {
     alternateLocale: "es_ES",
     url: site.url,
     siteName: "Meca Homes",
-    title: "Meca Homes | Luxury Custom Home Builders in South Florida",
+    title: "Meca Homes | Custom Home Builders in South Florida",
     description:
-      "Luxury custom home building, design-build, turn-key construction, site work, shell construction, and utility connections across Miami and South Florida.",
+      "Custom home building, design-build, turn-key construction, site work and shell construction, and utility connections across South Florida — Miami-Dade, Broward, and Palm Beach.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Meca Homes | Luxury Custom Home Builders in South Florida",
+    title: "Meca Homes | Custom Home Builders in South Florida",
     description:
-      "Luxury custom home building, design-build, turn-key construction, site work, and shell construction across Miami and South Florida.",
+      "Custom home building, design-build, turn-key construction, and site work and shell construction across South Florida — Miami-Dade, Broward, and Palm Beach.",
   },
   robots: {
     index: true,
@@ -90,10 +92,12 @@ const cityAreas = [
   "Doral",
   "Weston",
   "Fort Lauderdale",
+  "Boca Raton",
+  "West Palm Beach",
 ];
 
 const businessDescription =
-  "Luxury custom home builders providing design-build, turn-key construction, site work, shell construction, residential sewer lateral connections, and wet tapping in Miami and South Florida.";
+  "Custom home builders providing design-build, turn-key construction, site work and shell construction, residential sewer lateral connections, and wet tapping across South Florida — Miami-Dade, Broward, and Palm Beach.";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -106,7 +110,7 @@ const jsonLd = {
       email: site.email,
       description: businessDescription,
       logo: `${site.url}/og-image.jpg`,
-      slogan: "Luxury Custom Homes Built From Vision to Completion",
+      slogan: "Custom Homes Built From Vision to Completion",
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+1-786-300-1441",
@@ -152,14 +156,15 @@ const jsonLd = {
         { "@type": "AdministrativeArea", name: "South Florida" },
         { "@type": "AdministrativeArea", name: "Miami-Dade County" },
         { "@type": "AdministrativeArea", name: "Broward County" },
+        { "@type": "AdministrativeArea", name: "Palm Beach County" },
         ...cityAreas.map((name) => ({ "@type": "City", name })),
       ],
       knowsAbout: [
-        "Luxury Custom Homes",
+        "Custom Homes",
         "Design-Build",
+        "Architectural and Engineering Plans",
         "Turn-Key Construction",
-        "Site Work",
-        "Shell Construction",
+        "Site Work and Shell Construction",
         "Residential Sewer Lateral Connections",
         "Wet Tapping",
       ],

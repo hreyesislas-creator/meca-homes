@@ -1,29 +1,127 @@
 "use client";
 
 import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { aboutImages } from "@/lib/site";
 import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
-import { CheckIcon } from "./Icons";
+import { CheckIcon, ArrowIcon } from "./Icons";
+
+const AUTO_ROTATE_MS = 4500;
+
+function AboutSlideshow({ alt }: { alt: string }) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const count = aboutImages.length;
+
+  const goTo = useCallback(
+    (next: number) => setIndex((next + count) % count),
+    [count],
+  );
+  const next = useCallback(() => goTo(index + 1), [goTo, index]);
+  const prev = useCallback(() => goTo(index - 1), [goTo, index]);
+
+  // Auto-rotate, pausing on hover/focus interaction.
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1) % count),
+      AUTO_ROTATE_MS,
+    );
+    return () => window.clearInterval(id);
+  }, [paused, count]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 40) (delta < 0 ? next : prev)();
+    touchStartX.current = null;
+  };
+
+  return (
+    <div
+      className="group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-premium"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={alt}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {aboutImages.map((src, i) => (
+        <div
+          key={src}
+          className="absolute inset-0 transition-opacity duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ opacity: i === index ? 1 : 0 }}
+          aria-hidden={i !== index}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={i === 0}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
+      ))}
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+
+      {/* Manual navigation arrows */}
+      <button
+        type="button"
+        onClick={prev}
+        aria-label="Previous image"
+        className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-navy opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white focus-visible:opacity-100 group-hover:opacity-100"
+      >
+        <ArrowIcon className="h-5 w-5 rotate-180" />
+      </button>
+      <button
+        type="button"
+        onClick={next}
+        aria-label="Next image"
+        className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-navy opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white focus-visible:opacity-100 group-hover:opacity-100"
+      >
+        <ArrowIcon className="h-5 w-5" />
+      </button>
+
+      {/* Slide indicators */}
+      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2.5">
+        {aboutImages.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => goTo(i)}
+            aria-label={`Go to image ${i + 1}`}
+            aria-current={i === index}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === index ? "w-7 bg-gold" : "w-1.5 bg-white/60 hover:bg-white/90"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   const { t } = useI18n();
   return (
     <section id="about" className="relative overflow-hidden bg-offwhite py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        {/* Image */}
+        {/* Image slideshow */}
         <Reveal className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-premium">
-            <Image
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=80"
-              alt={t.about.imageAlt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
-          </div>
+          <AboutSlideshow alt={t.about.imageAlt} />
           {/* Floating accent card */}
-          <div className="absolute -bottom-6 -right-2 hidden rounded-xl border border-navy/10 bg-white p-5 shadow-card sm:-right-6 sm:block">
+          <div className="absolute -bottom-6 -right-2 z-10 hidden rounded-xl border border-navy/10 bg-white p-5 shadow-card sm:-right-6 sm:block">
             <div className="font-display text-3xl font-semibold text-navy">
               {t.about.cardTitle}
             </div>

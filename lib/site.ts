@@ -55,6 +55,17 @@ export const serviceImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1100&q=80",
 };
 
+// About-section slideshow imagery. Curated from the existing project image set
+// (the original about image + selected gallery residences), sized for the 4:5
+// frame. Alt text comes from t.about.imageAlt.
+export const aboutImages = [
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=80",
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1100&q=80",
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1100&q=80",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=80",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1100&q=80",
+] as const;
+
 // Service-area city names (proper nouns — identical in both languages).
 // Descriptions come from t.serviceAreas.notes[i] (same order).
 export const areaNames = [
@@ -68,6 +79,11 @@ export const areaNames = [
   "Doral",
   "Weston",
   "Fort Lauderdale",
+  "Miami-Dade",
+  "Broward",
+  "Palm Beach",
+  "Boca Raton",
+  "West Palm Beach",
 ] as const;
 
 // Gallery images. Captions/alt come from t.gallery.captions[i] (same order).

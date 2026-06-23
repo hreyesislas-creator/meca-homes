@@ -62,28 +62,32 @@ export default function Services() {
               </a>
             </Reveal>
           ))}
+        </div>
 
-          {/* CTA card */}
-          <Reveal
-            as="article"
-            delay={200}
-            className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-gold to-gold-deep p-7 text-navy"
-          >
-            <h3 className="font-display text-2xl font-semibold leading-snug">
-              {t.services.ctaCardTitle}
-            </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-navy/80">
-              {t.services.ctaCardBody}
-            </p>
+        {/* Standalone CTA section — below all service cards */}
+        <Reveal
+          as="section"
+          delay={120}
+          className="mt-12 overflow-hidden rounded-3xl bg-gradient-to-br from-gold to-gold-deep p-8 text-navy shadow-premium sm:mt-16 sm:p-12 lg:p-14"
+        >
+          <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+            <div className="max-w-2xl">
+              <h3 className="font-display text-3xl font-semibold leading-snug sm:text-4xl">
+                {t.services.ctaCardTitle}
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-navy/80 sm:text-lg">
+                {t.services.ctaCardBody}
+              </p>
+            </div>
             <a
               href="#contact"
-              className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-deep"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-navy px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-deep sm:w-auto"
             >
               {t.services.ctaCardCta}
               <ArrowIcon className="h-4 w-4" />
             </a>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

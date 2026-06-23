@@ -14,9 +14,9 @@ export type Lang = "en" | "es";
 
 const en = {
   meta: {
-    title: "Meca Homes | Luxury Custom Home Builders in South Florida",
+    title: "Meca Homes | Custom Home Builders in South Florida",
     description:
-      "Meca Homes are luxury custom home builders in South Florida, serving Miami and surrounding communities with design-build, turn-key construction, site work, shell construction, residential sewer lateral connections, and wet tapping.",
+      "Meca Homes are custom home builders serving South Florida — Miami-Dade, Broward, and Palm Beach — with design-build, turn-key construction, site work and shell construction, residential sewer lateral connections, and wet tapping.",
   },
   brand: {
     tagline: "Luxury Builders",
@@ -49,14 +49,14 @@ const en = {
     requestConsultation: "Request a Consultation",
   },
   hero: {
-    badge: "Luxury & Custom Home Builders · South Florida",
+    badge: "Custom Home Builders · South Florida",
     imageAlt:
-      "Luxury custom home built by Meca Homes in South Florida with modern architecture and manicured landscaping",
-    headlineLead: "Luxury Custom Homes Built From ",
+      "Custom home built by Meca Homes in South Florida with modern architecture and manicured landscaping",
+    headlineLead: "Custom Homes Built From ",
     headlineHighlight: "Vision",
     headlineTail: " to Completion",
     subhead:
-      "Meca Homes are luxury custom home builders serving Miami and South Florida — delivering design-build, turn-key construction, site work, shell construction, and residential utility connections under one accountable team.",
+      "Meca Homes are custom home builders serving South Florida — Miami-Dade, Broward, and Palm Beach — delivering design-build, turn-key construction, site work and shell construction, and residential utility connections under one accountable team.",
     ctaPrimary: "Request a Consultation",
     stats: [
       { k: "Single", v: "Point of Responsibility" },
@@ -86,14 +86,14 @@ const en = {
   about: {
     eyebrow: "About Meca Homes",
     imageAlt:
-      "Interior of a Meca Homes luxury custom residence in South Florida with refined finishes",
+      "Interior of a Meca Homes custom residence in South Florida with refined finishes",
     headline: "A single point of responsibility, from first sketch to final key.",
     body: [
-      "Meca Homes is a luxury custom home builder serving Miami and South Florida. We unify every phase of your project under one accountable team — design, permitting, site preparation, construction, inspections, and the final walkthrough — so you always know exactly where your home stands.",
+      "Meca Homes is a custom home builder serving South Florida — Miami-Dade, Broward, and Palm Beach. We unify every phase of your project under one accountable team — design, Architectural and Engineering Plans, permitting, site preparation, construction, inspections, and the final walkthrough — so you always know exactly where your home stands.",
       "That single point of responsibility removes the gaps, delays, and finger-pointing that plague multi-vendor builds. The result is a calmer process, a protected budget, and a residence crafted to the highest standard.",
     ],
     pillars: [
-      "Design & architectural planning",
+      "Design, Architectural & Engineering Plans",
       "Permitting & municipal approvals",
       "Site preparation & utilities",
       "Construction & quality oversight",
@@ -108,7 +108,7 @@ const en = {
     headline:
       "Specialized services for high-end residential construction in South Florida.",
     intro:
-      "From full design-build engagements in Miami to specialized utility work across the region, every service is delivered with the precision a luxury home demands.",
+      "From full design-build engagements across South Florida to specialized utility work throughout the region, every service is delivered with the precision a custom home demands.",
     exploreCta: "Explore this service",
     ctaCardTitle: "Not sure where your project fits?",
     ctaCardBody:
@@ -117,7 +117,7 @@ const en = {
     items: [
       {
         title: "Design Build",
-        headline: "One Team, From Concept to Keys",
+        headline: "One Team, From Concept to Completion",
         copy: "Architecture, engineering, and construction unified under a single agreement — eliminating gaps, accelerating timelines, and protecting your budget from concept to completion.",
         long: "As a design build contractor in South Florida, Meca Homes unites architecture, structural engineering, and construction under one accountable agreement. You work with a single team from the first concept sketch through final completion — no handoffs between separate firms, no conflicting timelines, and no budget surprises. This integrated model is how the most refined custom homes in Miami and the surrounding communities get built on schedule and to specification.",
         features: [
@@ -130,8 +130,8 @@ const en = {
       {
         title: "Turn-Key Construction",
         headline: "Move-In Ready, Built to Last",
-        copy: "We manage every trade, inspection, and finish so you receive a fully completed luxury residence — no loose ends, no surprises, just the keys to your new home.",
-        long: "Our turn-key construction service in Miami and South Florida delivers a fully finished luxury residence ready for the day you walk through the door. Meca Homes coordinates every trade, material selection, inspection, and finish so nothing is left for you to chase. From foundation to final detailing, we manage the complete build and hand over a home that is complete, code-compliant, and ready to enjoy.",
+        copy: "We manage every trade, inspection, and finish so you receive a fully completed custom residence — no loose ends, no surprises, just the keys to your new home.",
+        long: "Our turn-key construction service across South Florida delivers a fully finished custom residence ready for the day you walk through the door. Meca Homes coordinates every trade, material selection, inspection, and finish so nothing is left for you to chase. From foundation to final detailing, we manage the complete build and hand over a home that is complete, code-compliant, and ready to enjoy.",
         features: [
           "Full-scope project management",
           "Premium materials and finish coordination",
@@ -143,12 +143,12 @@ const en = {
         title: "Site Work & Shell Construction",
         headline: "Engineered Foundations & Structure",
         copy: "Clearing, grading, foundations, and structural shell construction executed to exacting standards — the durable groundwork that defines a home built to endure.",
-        long: "Strong homes begin below the surface. As a site work contractor in Miami, Meca Homes handles clearing, grading, drainage, foundations, and full shell construction across South Florida. Our structural shell work — slabs, tie-beams, masonry, and framing — is engineered for the region's soil, wind-load, and code requirements, giving developers and homeowners durable groundwork that performs for decades. We also partner with builders who need only the site work and shell completed to a turn-ready standard.",
+        long: "Strong homes begin below the surface. As a site work contractor across South Florida, Meca Homes handles clearing, grading, drainage, foundations, and full shell construction up to final roof covering. Our structural shell work — slabs, tie-beams, masonry, framing, and roof structure up to final roof covering — is engineered for the region's soil, wind-load, and code requirements, giving developers and homeowners durable groundwork that performs for decades. We also partner with builders who need only the site work and shell completed to a turn-ready standard.",
         features: [
           "Land clearing, grading & drainage",
           "Engineered foundations and slabs",
           "Masonry, tie-beams & structural shell",
-          "Wind-load and code-compliant builds",
+          "Structural shell completed up to final roof covering",
         ],
       },
       {
@@ -181,7 +181,7 @@ const en = {
     eyebrow: "Services In Detail",
     headline: "Specialized expertise, explained.",
     intro:
-      "Each discipline below is delivered to luxury standards across Miami and South Florida — engineered, permitted, and built to last.",
+      "Each discipline below is delivered to exacting standards across South Florida — engineered, permitted, and built to last.",
     cta: "Request a Consultation",
     imageAltSuffix: "Meca Homes, South Florida",
   },
@@ -221,12 +221,12 @@ const en = {
     eyebrow: "Selected Work",
     title: "Custom residences, crafted with intention.",
     intro:
-      "Custom residential construction, structural work, site preparation, and luxury home development across South Florida.",
+      "Custom residential construction, structural work, site preparation, and custom home development across South Florida.",
     captions: [
-      "Luxury custom home exterior in South Florida with clean modern architecture",
+      "Custom home exterior in South Florida with clean modern architecture",
       "Contemporary Miami residence with floor-to-ceiling glass",
-      "Custom-built luxury home with manicured South Florida landscaping",
-      "Architectural waterfront luxury property in South Florida",
+      "Custom-built home with manicured South Florida landscaping",
+      "Architectural waterfront property in South Florida",
       "Interior of a custom-built modern Miami home",
       "Elegant South Florida custom home at dusk with warm lighting",
     ],
@@ -236,18 +236,23 @@ const en = {
     eyebrow: "Where We Build",
     title: "Serving South Florida",
     intro:
-      "Meca Homes delivers luxury residential construction throughout South Florida — from custom homes in Miami and Coral Gables to waterfront residences in Key Biscayne and Fort Lauderdale. Wherever your lot sits across Miami-Dade and Broward, our design-build team brings the same single point of responsibility to your project.",
+      "Meca Homes delivers custom residential construction throughout South Florida — from custom homes in Miami and Coral Gables to waterfront residences in Key Biscayne, Fort Lauderdale, Boca Raton, and West Palm Beach. Wherever your lot sits across Miami-Dade, Broward, or Palm Beach, our design-build team brings the same single point of responsibility to your project.",
     notes: [
       "Custom homes across the city and greater Miami-Dade.",
       "Estate residences within strict architectural standards.",
-      "Spacious luxury homes on signature large lots.",
+      "Spacious custom homes on signature large lots.",
       "Refined builds among the Grove's lush canopy.",
       "Coastal, code-resilient island residences.",
       "Waterfront and modern architectural homes.",
       "Contemporary residences in a premier enclave.",
       "New construction in one of Miami's fastest-growing areas.",
       "Family estates in West Broward's planned communities.",
-      "Luxury and waterfront homes across Broward County.",
+      "Custom and waterfront homes across Broward County.",
+      "Custom home building across the full breadth of Miami-Dade County.",
+      "Residential construction throughout Broward County communities.",
+      "Custom and luxury residences across Palm Beach County.",
+      "Upscale custom homes in Boca Raton and nearby enclaves.",
+      "Modern custom residences across West Palm Beach and the coast.",
     ],
     closingLead: "Don't see your community? ",
     closingLink: "Contact us",
@@ -258,15 +263,15 @@ const en = {
     eyebrow: "Questions, Answered",
     title: "Custom Home Building FAQs",
     intro:
-      "Common questions about building a luxury custom home in Miami and South Florida — from cost and timelines to permitting, site work, and utility connections.",
+      "Common questions about building a custom home in South Florida — from cost and timelines to permitting, site work, and utility connections.",
     closingLead: "Still have questions about your project? ",
     closingCallPrefix: "Call ",
     closingOr: " or ",
     closingLink: "request a consultation",
     items: [
       {
-        q: "How much does a luxury custom home cost in Miami?",
-        a: "Luxury custom home costs in Miami and South Florida vary widely based on lot, square footage, design complexity, finishes, and site conditions. Most high-end custom homes are priced per square foot, with premium architectural and waterfront projects commanding more. Rather than quote a generic number, Meca Homes prepares a tailored budget after reviewing your lot, scope, and design goals during the consultation — so you have a realistic figure built around your actual project.",
+        q: "How much does a custom home cost in South Florida?",
+        a: "Custom home costs across South Florida — Miami-Dade, Broward, and Palm Beach — vary widely based on lot, square footage, design complexity, finishes, and site conditions. Most custom homes are priced per square foot, with premium architectural and waterfront projects commanding more. Rather than quote a generic number, Meca Homes prepares a tailored budget after reviewing your lot, scope, and design goals during the consultation — so you have a realistic figure built around your actual project.",
       },
       {
         q: "How long does a custom home build take?",
@@ -306,11 +311,11 @@ const en = {
       },
       {
         q: "What areas of South Florida do you serve?",
-        a: "Meca Homes serves luxury residential construction throughout South Florida, including Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, and Fort Lauderdale, along with surrounding Miami-Dade and Broward communities. If your project sits within the region, we can almost certainly help — reach out and we will confirm.",
+        a: "Meca Homes serves custom residential construction throughout South Florida, including Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, Fort Lauderdale, Boca Raton, and West Palm Beach, along with the surrounding Miami-Dade, Broward, and Palm Beach County communities. If your project sits within the region, we can almost certainly help — reach out and we will confirm.",
       },
       {
         q: "Why choose a design-build contractor?",
-        a: "A design-build contractor gives you a single team and a single contract for design, engineering, and construction, which means clearer accountability, tighter budget control, and faster timelines than coordinating separate firms. You avoid the common scenario where the architect and builder blame each other for overruns. For a luxury custom home in Miami or South Florida, that unified responsibility protects both your investment and your peace of mind.",
+        a: "A design-build contractor gives you a single team and a single contract for design, engineering, and construction, which means clearer accountability, tighter budget control, and faster timelines than coordinating separate firms. You avoid the common scenario where the architect and builder blame each other for overruns. For a custom home anywhere in South Florida, that unified responsibility protects both your investment and your peace of mind.",
       },
       {
         q: "What makes luxury home construction different?",
@@ -410,15 +415,15 @@ const en = {
   },
   footer: {
     description:
-      "Luxury custom home builders in Miami & South Florida — delivering design-build, turn-key construction, site work, shell construction, and residential utility connections.",
+      "Custom home builders across South Florida — Miami-Dade, Broward, and Palm Beach — delivering design-build, turn-key construction, site work and shell construction, and residential utility connections.",
     exploreHeading: "Explore",
     servicesHeading: "Services",
     areasHeading: "Areas Served",
     seoLead: "Custom home builders serving South Florida:",
     seoBody:
-      "Proudly building luxury custom homes across Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, and Fort Lauderdale.",
+      "Proudly building custom homes across Miami-Dade, Broward, and Palm Beach — including Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, Fort Lauderdale, Boca Raton, and West Palm Beach.",
     rights: "All rights reserved.",
-    positioning: "Luxury Home Builders | Custom Home Builders · South Florida",
+    positioning: "Custom Home Builders | Residential Construction · South Florida",
   },
 };
 
@@ -427,9 +432,9 @@ export type Translation = typeof en;
 const es: Translation = {
   meta: {
     title:
-      "Meca Homes | Constructores de Residencias de Lujo Personalizadas en el Sur de Florida",
+      "Meca Homes | Constructores de Casas Personalizadas en el Sur de Florida",
     description:
-      "Meca Homes son constructores de residencias de lujo personalizadas en el Sur de Florida, al servicio de Miami y las comunidades cercanas, con diseño-construcción, construcción llave en mano, preparación de terreno, obra gris, conexiones laterales de alcantarillado y tomas en carga.",
+      "Meca Homes son constructores de casas personalizadas en el Sur de Florida —Miami-Dade, Broward y Palm Beach— con diseño-construcción, construcción llave en mano, preparación de terreno y obra gris, conexiones laterales de alcantarillado y tomas en carga.",
   },
   brand: {
     tagline: "Constructores de Lujo",
@@ -462,14 +467,14 @@ const es: Translation = {
     requestConsultation: "Solicitar Consulta",
   },
   hero: {
-    badge: "Constructores de Casas de Lujo y Personalizadas · Sur de Florida",
+    badge: "Constructores de Casas Personalizadas · Sur de Florida",
     imageAlt:
-      "Residencia de lujo personalizada construida por Meca Homes en el Sur de Florida con arquitectura moderna y jardinería cuidada",
-    headlineLead: "Residencias de Lujo Hechas a la Medida, de la ",
+      "Casa personalizada construida por Meca Homes en el Sur de Florida con arquitectura moderna y jardinería cuidada",
+    headlineLead: "Casas Personalizadas Hechas a la Medida, de la ",
     headlineHighlight: "Visión",
     headlineTail: " a la Entrega",
     subhead:
-      "Meca Homes es una constructora de residencias de lujo hechas a la medida en Miami y el Sur de Florida, que ofrece diseño-construcción, construcción llave en mano, preparación de terreno, obra gris y conexiones residenciales de servicios bajo un solo equipo responsable.",
+      "Meca Homes es una constructora de casas personalizadas en el Sur de Florida —Miami-Dade, Broward y Palm Beach— que ofrece diseño-construcción, construcción llave en mano, preparación de terreno y obra gris, y conexiones residenciales de servicios bajo un solo equipo responsable.",
     ctaPrimary: "Solicitar Consulta",
     stats: [
       { k: "Único", v: "Punto de Responsabilidad" },
@@ -499,15 +504,15 @@ const es: Translation = {
   about: {
     eyebrow: "Sobre Meca Homes",
     imageAlt:
-      "Interior de una residencia de lujo personalizada de Meca Homes en el Sur de Florida con acabados refinados",
+      "Interior de una residencia personalizada de Meca Homes en el Sur de Florida con acabados refinados",
     headline:
       "Un solo punto de responsabilidad, desde el primer boceto hasta la entrega de llaves.",
     body: [
-      "Meca Homes es una constructora de residencias de lujo hechas a la medida en Miami y el Sur de Florida. Unificamos cada fase de su proyecto bajo un solo equipo responsable —diseño, permisos, preparación del terreno, construcción, inspecciones y la entrega final— para que siempre sepa con exactitud en qué etapa se encuentra su hogar.",
+      "Meca Homes es una constructora de casas personalizadas en el Sur de Florida —Miami-Dade, Broward y Palm Beach—. Unificamos cada fase de su proyecto bajo un solo equipo responsable —diseño, Planos Arquitectónicos y de Ingeniería, permisos, preparación del terreno, construcción, inspecciones y la entrega final— para que siempre sepa con exactitud en qué etapa se encuentra su hogar.",
       "Ese único punto de responsabilidad elimina los vacíos, las demoras y la falta de coordinación habituales cuando intervienen múltiples contratistas. El resultado es un proceso más tranquilo, un presupuesto protegido y una residencia elaborada con los más altos estándares.",
     ],
     pillars: [
-      "Diseño y planificación arquitectónica",
+      "Diseño, Planos Arquitectónicos y de Ingeniería",
       "Permisos y aprobaciones municipales",
       "Preparación del terreno y servicios",
       "Construcción y control de calidad",
@@ -522,7 +527,7 @@ const es: Translation = {
     headline:
       "Servicios especializados para construcción residencial de alta gama en el Sur de Florida.",
     intro:
-      "Desde proyectos completos de diseño-construcción en Miami hasta trabajos especializados de servicios públicos en toda la región, cada servicio se ejecuta con la precisión que exige una residencia de lujo.",
+      "Desde proyectos completos de diseño-construcción en todo el Sur de Florida hasta trabajos especializados de servicios públicos en toda la región, cada servicio se ejecuta con la precisión que exige una casa personalizada.",
     exploreCta: "Conocer este servicio",
     ctaCardTitle: "¿No sabe en qué categoría encaja su proyecto?",
     ctaCardBody:
@@ -531,7 +536,7 @@ const es: Translation = {
     items: [
       {
         title: "Diseño-Construcción",
-        headline: "Un Solo Equipo, del Concepto a las Llaves",
+        headline: "Un Solo Equipo, del Concepto a la Entrega Final",
         copy: "Arquitectura, ingeniería y construcción unificadas en un solo contrato: eliminamos los vacíos, aceleramos los plazos y protegemos su presupuesto del concepto a la entrega.",
         long: "Como contratista de diseño-construcción en el Sur de Florida, Meca Homes une la arquitectura, la ingeniería estructural y la construcción en un solo contrato responsable. Usted trabaja con un único equipo desde el primer boceto conceptual hasta la entrega final, sin transferencias entre firmas distintas, sin plazos en conflicto y sin sorpresas en el presupuesto. Este modelo integrado es la forma en que las residencias personalizadas más refinadas de Miami y las comunidades cercanas se construyen a tiempo y según las especificaciones.",
         features: [
@@ -544,8 +549,8 @@ const es: Translation = {
       {
         title: "Construcción Llave en Mano",
         headline: "Lista para Habitar, Construida para Durar",
-        copy: "Gestionamos cada oficio, inspección y acabado para que reciba una residencia de lujo totalmente terminada: sin cabos sueltos, sin sorpresas, solo las llaves de su nuevo hogar.",
-        long: "Nuestro servicio de construcción llave en mano en Miami y el Sur de Florida entrega una residencia de lujo completamente terminada, lista para el día en que cruce la puerta. Meca Homes coordina cada oficio, selección de materiales, inspección y acabado para que usted no tenga que ocuparse de nada. Desde los cimientos hasta los detalles finales, gestionamos la obra completa y entregamos un hogar terminado, conforme a los códigos y listo para disfrutar.",
+        copy: "Gestionamos cada oficio, inspección y acabado para que reciba una casa personalizada totalmente terminada: sin cabos sueltos, sin sorpresas, solo las llaves de su nuevo hogar.",
+        long: "Nuestro servicio de construcción llave en mano en todo el Sur de Florida entrega una casa personalizada completamente terminada, lista para el día en que cruce la puerta. Meca Homes coordina cada oficio, selección de materiales, inspección y acabado para que usted no tenga que ocuparse de nada. Desde los cimientos hasta los detalles finales, gestionamos la obra completa y entregamos un hogar terminado, conforme a los códigos y listo para disfrutar.",
         features: [
           "Gestión integral del proyecto",
           "Coordinación de materiales y acabados premium",
@@ -557,12 +562,12 @@ const es: Translation = {
         title: "Preparación de Terreno y Construcción de Obra Gris",
         headline: "Cimientos y Estructura de Ingeniería",
         copy: "Limpieza, nivelación, cimientos y construcción de obra gris estructural ejecutados con estándares exigentes: la base duradera que define un hogar construido para perdurar.",
-        long: "Los hogares sólidos comienzan bajo la superficie. Como contratista de preparación de terreno en Miami, Meca Homes se encarga de la limpieza, nivelación, drenaje, cimientos y construcción de obra gris en todo el Sur de Florida. Nuestra obra gris estructural —losas, vigas de amarre, mampostería y armado— está diseñada para el suelo, las cargas de viento y los requisitos de código de la región, ofreciendo a desarrolladores y propietarios una base duradera que rinde por décadas. También colaboramos con constructores que solo necesitan la preparación del terreno y la obra gris terminadas a un estándar listo para continuar.",
+        long: "Los hogares sólidos comienzan bajo la superficie. Como contratista de preparación de terreno en todo el Sur de Florida, Meca Homes se encarga de la limpieza, nivelación, drenaje, cimientos y construcción de obra gris hasta el techado final. Nuestra obra gris estructural —losas, vigas de amarre, mampostería, armado y estructura de techo hasta el techado final— está diseñada para el suelo, las cargas de viento y los requisitos de código de la región, ofreciendo a desarrolladores y propietarios una base duradera que rinde por décadas. También colaboramos con constructores que solo necesitan la preparación del terreno y la obra gris terminadas a un estándar listo para continuar.",
         features: [
           "Limpieza, nivelación y drenaje del terreno",
           "Cimientos y losas de ingeniería",
           "Mampostería, vigas de amarre y obra gris estructural",
-          "Construcción conforme a cargas de viento y códigos",
+          "Obra gris estructural terminada hasta el techado final",
         ],
       },
       {
@@ -595,7 +600,7 @@ const es: Translation = {
     eyebrow: "Servicios en Detalle",
     headline: "Experiencia especializada, explicada.",
     intro:
-      "Cada disciplina a continuación se ejecuta con estándares de lujo en Miami y el Sur de Florida: con ingeniería, permisos y construida para durar.",
+      "Cada disciplina a continuación se ejecuta con estándares exigentes en el Sur de Florida: con ingeniería, permisos y construida para durar.",
     cta: "Solicitar Consulta",
     imageAltSuffix: "Meca Homes, Sur de Florida",
   },
@@ -635,12 +640,12 @@ const es: Translation = {
     eyebrow: "Trabajo Seleccionado",
     title: "Residencias personalizadas, creadas con intención.",
     intro:
-      "Construcción residencial personalizada, trabajo estructural, preparación de terreno y desarrollo de viviendas de lujo en todo el Sur de Florida.",
+      "Construcción residencial personalizada, trabajo estructural, preparación de terreno y desarrollo de viviendas personalizadas en todo el Sur de Florida.",
     captions: [
-      "Fachada de residencia de lujo personalizada en el Sur de Florida con arquitectura moderna y limpia",
+      "Fachada de residencia personalizada en el Sur de Florida con arquitectura moderna y limpia",
       "Residencia contemporánea en Miami con ventanales de piso a techo",
-      "Casa de lujo construida a la medida con jardinería cuidada del Sur de Florida",
-      "Propiedad de lujo arquitectónica frente al agua en el Sur de Florida",
+      "Casa construida a la medida con jardinería cuidada del Sur de Florida",
+      "Propiedad arquitectónica frente al agua en el Sur de Florida",
       "Interior de una casa moderna construida a la medida en Miami",
       "Elegante residencia personalizada del Sur de Florida al atardecer con iluminación cálida",
     ],
@@ -650,18 +655,23 @@ const es: Translation = {
     eyebrow: "Dónde Construimos",
     title: "Al Servicio del Sur de Florida",
     intro:
-      "Meca Homes ofrece construcción residencial de lujo en todo el Sur de Florida, desde residencias personalizadas en Miami y Coral Gables hasta viviendas frente al agua en Key Biscayne y Fort Lauderdale. Dondequiera que se encuentre su terreno en Miami-Dade y Broward, nuestro equipo de diseño-construcción aporta el mismo y único punto de responsabilidad a su proyecto.",
+      "Meca Homes ofrece construcción residencial personalizada en todo el Sur de Florida, desde residencias personalizadas en Miami y Coral Gables hasta viviendas frente al agua en Key Biscayne, Fort Lauderdale, Boca Raton y West Palm Beach. Dondequiera que se encuentre su terreno en Miami-Dade, Broward o Palm Beach, nuestro equipo de diseño-construcción aporta el mismo y único punto de responsabilidad a su proyecto.",
     notes: [
       "Residencias personalizadas en toda la ciudad y el área metropolitana de Miami-Dade.",
       "Residencias señoriales que cumplen estrictos estándares arquitectónicos.",
-      "Amplias residencias de lujo en terrenos de gran tamaño.",
+      "Amplias casas personalizadas en terrenos de gran tamaño.",
       "Construcciones refinadas entre la frondosa vegetación del Grove.",
       "Residencias isleñas costeras y resistentes según el código.",
       "Viviendas frente al agua y de arquitectura moderna.",
       "Residencias contemporáneas en un enclave de primer nivel.",
       "Obra nueva en una de las zonas de mayor crecimiento de Miami.",
       "Residencias familiares en las comunidades planificadas del oeste de Broward.",
-      "Viviendas de lujo y frente al agua en todo el condado de Broward.",
+      "Viviendas personalizadas y frente al agua en todo el condado de Broward.",
+      "Construcción de casas personalizadas en todo el condado de Miami-Dade.",
+      "Construcción residencial en las comunidades del condado de Broward.",
+      "Residencias personalizadas y de lujo en todo el condado de Palm Beach.",
+      "Casas personalizadas de alta gama en Boca Raton y sus alrededores.",
+      "Residencias personalizadas modernas en West Palm Beach y la costa.",
     ],
     closingLead: "¿No ve su comunidad? ",
     closingLink: "Contáctenos",
@@ -672,15 +682,15 @@ const es: Translation = {
     eyebrow: "Preguntas, Respondidas",
     title: "Preguntas Frecuentes sobre Construcción de Residencias",
     intro:
-      "Preguntas comunes sobre la construcción de una residencia de lujo personalizada en Miami y el Sur de Florida: desde costos y plazos hasta permisos, preparación de terreno y conexiones de servicios.",
+      "Preguntas comunes sobre la construcción de una casa personalizada en el Sur de Florida: desde costos y plazos hasta permisos, preparación de terreno y conexiones de servicios.",
     closingLead: "¿Aún tiene preguntas sobre su proyecto? ",
     closingCallPrefix: "Llame al ",
     closingOr: " o ",
     closingLink: "solicite una consulta",
     items: [
       {
-        q: "¿Cuánto cuesta una residencia de lujo personalizada en Miami?",
-        a: "El costo de una residencia de lujo personalizada en Miami y el Sur de Florida varía ampliamente según el terreno, los metros cuadrados, la complejidad del diseño, los acabados y las condiciones del sitio. La mayoría de las residencias de alta gama se cotizan por pie cuadrado, y los proyectos arquitectónicos premium o frente al agua alcanzan valores mayores. En lugar de dar una cifra genérica, Meca Homes prepara un presupuesto a la medida tras revisar su terreno, alcance y objetivos de diseño durante la consulta, para que tenga una cifra realista basada en su proyecto real.",
+        q: "¿Cuánto cuesta una casa personalizada en el Sur de Florida?",
+        a: "El costo de una casa personalizada en el Sur de Florida —Miami-Dade, Broward y Palm Beach— varía ampliamente según el terreno, los metros cuadrados, la complejidad del diseño, los acabados y las condiciones del sitio. La mayoría de las casas personalizadas se cotizan por pie cuadrado, y los proyectos arquitectónicos premium o frente al agua alcanzan valores mayores. En lugar de dar una cifra genérica, Meca Homes prepara un presupuesto a la medida tras revisar su terreno, alcance y objetivos de diseño durante la consulta, para que tenga una cifra realista basada en su proyecto real.",
       },
       {
         q: "¿Cuánto tarda la construcción de una residencia personalizada?",
@@ -720,11 +730,11 @@ const es: Translation = {
       },
       {
         q: "¿Qué zonas del Sur de Florida atienden?",
-        a: "Meca Homes ofrece construcción residencial de lujo en todo el Sur de Florida, incluyendo Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston y Fort Lauderdale, junto con las comunidades cercanas de Miami-Dade y Broward. Si su proyecto se encuentra dentro de la región, es casi seguro que podemos ayudar: contáctenos y se lo confirmaremos.",
+        a: "Meca Homes ofrece construcción residencial personalizada en todo el Sur de Florida, incluyendo Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, Fort Lauderdale, Boca Raton y West Palm Beach, junto con las comunidades cercanas de los condados de Miami-Dade, Broward y Palm Beach. Si su proyecto se encuentra dentro de la región, es casi seguro que podemos ayudar: contáctenos y se lo confirmaremos.",
       },
       {
         q: "¿Por qué elegir un contratista de diseño-construcción?",
-        a: "Un contratista de diseño-construcción le ofrece un solo equipo y un solo contrato para el diseño, la ingeniería y la construcción, lo que se traduce en una responsabilidad más clara, un mejor control del presupuesto y plazos más cortos que coordinar firmas por separado. Evita la situación común en la que el arquitecto y el constructor se culpan mutuamente por los sobrecostos. Para una residencia de lujo personalizada en Miami o el Sur de Florida, esa responsabilidad unificada protege tanto su inversión como su tranquilidad.",
+        a: "Un contratista de diseño-construcción le ofrece un solo equipo y un solo contrato para el diseño, la ingeniería y la construcción, lo que se traduce en una responsabilidad más clara, un mejor control del presupuesto y plazos más cortos que coordinar firmas por separado. Evita la situación común en la que el arquitecto y el constructor se culpan mutuamente por los sobrecostos. Para una casa personalizada en cualquier lugar del Sur de Florida, esa responsabilidad unificada protege tanto su inversión como su tranquilidad.",
       },
       {
         q: "¿Qué hace diferente a la construcción de viviendas de lujo?",
@@ -826,16 +836,16 @@ const es: Translation = {
   },
   footer: {
     description:
-      "Constructores de residencias de lujo personalizadas en Miami y el Sur de Florida, que ofrecen diseño-construcción, construcción llave en mano, preparación de terreno, obra gris y conexiones residenciales de servicios.",
+      "Constructores de casas personalizadas en todo el Sur de Florida —Miami-Dade, Broward y Palm Beach—, que ofrecen diseño-construcción, construcción llave en mano, preparación de terreno y obra gris, y conexiones residenciales de servicios.",
     exploreHeading: "Explorar",
     servicesHeading: "Servicios",
     areasHeading: "Zonas Atendidas",
     seoLead: "Constructores de residencias personalizadas al servicio del Sur de Florida:",
     seoBody:
-      "Construyendo con orgullo residencias de lujo personalizadas en Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston y Fort Lauderdale.",
+      "Construyendo con orgullo casas personalizadas en Miami-Dade, Broward y Palm Beach —incluyendo Miami, Coral Gables, Pinecrest, Coconut Grove, Key Biscayne, Miami Beach, Aventura, Doral, Weston, Fort Lauderdale, Boca Raton y West Palm Beach.",
     rights: "Todos los derechos reservados.",
     positioning:
-      "Constructores de Casas de Lujo | Constructores de Casas Personalizadas · Sur de Florida",
+      "Constructores de Casas Personalizadas | Construcción Residencial · Sur de Florida",
   },
 };
 

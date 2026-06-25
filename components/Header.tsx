@@ -81,7 +81,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-lg text-white"
+            className="relative z-[80] flex h-11 w-11 items-center justify-center rounded-lg text-white"
             aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={open}
           >
@@ -107,21 +107,22 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile drawer — sits above the header bar content; the close button
-          (z-[60]) stays above it so it remains clickable. */}
+      {/* Mobile drawer — full-screen, solid navy panel that slides in. It sits
+          above everything (z-[70]) while the close button (z-[80]) stays above
+          it so the X remains clickable. The panel is driven by a transform (not
+          opacity) so it is always fully opaque — no page content shows through. */}
       <div
-        className={`fixed inset-0 z-50 bg-navy-deep transition-all duration-500 lg:hidden ${
-          open ? "visible opacity-100" : "invisible opacity-0"
+        className={`fixed inset-0 z-[70] overflow-y-auto bg-navy-deep transition-transform duration-500 lg:hidden ${
+          open ? "visible translate-x-0" : "invisible translate-x-full"
         }`}
       >
-        <div className="flex h-full flex-col justify-center gap-2 px-8">
-          {nav.map((item, i) => (
+        <div className="flex min-h-full flex-col justify-center gap-2 px-8 py-24">
+          {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className="border-b border-white/10 py-4 font-display text-3xl text-white transition-transform duration-300 hover:translate-x-2 hover:text-gold"
-              style={{ transitionDelay: open ? `${i * 50}ms` : "0ms" }}
             >
               {t.nav[item.key]}
             </a>

@@ -115,7 +115,7 @@ function AboutSlideshow({ alt }: { alt: string }) {
 export default function About() {
   const { t } = useI18n();
   return (
-    <section id="about" className="relative overflow-hidden bg-offwhite py-24 sm:py-32">
+    <section id="about" className="relative overflow-hidden bg-offwhite pt-24 pb-12 sm:pt-32 sm:pb-16">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         {/* Image slideshow */}
         <Reveal className="relative">

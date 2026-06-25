@@ -11,7 +11,7 @@ export default function ServiceDetails() {
   return (
     <section
       id="services"
-      className="relative bg-offwhite py-24 sm:py-28"
+      className="relative bg-offwhite pt-12 pb-24 sm:pt-16 sm:pb-28"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="mx-auto mb-16 max-w-2xl text-center">

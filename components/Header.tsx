@@ -81,7 +81,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative z-[80] flex h-11 w-11 items-center justify-center rounded-lg text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-white"
             aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={open}
           >
@@ -107,44 +107,78 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile drawer — full-screen, solid navy panel that slides in. It sits
-          above everything (z-[70]) while the close button (z-[80]) stays above
-          it so the X remains clickable. The panel is driven by a transform (not
-          opacity) so it is always fully opaque — no page content shows through. */}
-      <div
-        className={`fixed inset-0 z-[70] overflow-y-auto bg-navy-deep transition-transform duration-500 lg:hidden ${
-          open ? "visible translate-x-0" : "invisible translate-x-full"
-        }`}
-      >
-        <div className="flex min-h-full flex-col justify-center gap-2 px-8 py-24">
-          {nav.map((item) => (
+      {/* Mobile menu — a single, solid, full-screen overlay. No transition, no
+          blur, no transparent panel, no nested z-index. Hidden on lg+ (desktop),
+          matching the desktop nav breakpoint so the tablet range keeps the
+          hamburger + overlay in sync. */}
+      {open && (
+        <div className="fixed inset-0 z-[9999] flex flex-col overflow-y-auto bg-[#081832] text-white lg:hidden">
+          {/* Top row: logo · language · close */}
+          <div className="flex items-center justify-between px-5 py-5 sm:px-8">
             <a
-              key={item.href}
-              href={item.href}
+              href="#top"
               onClick={() => setOpen(false)}
-              className="border-b border-white/10 py-4 font-display text-3xl text-white transition-transform duration-300 hover:translate-x-2 hover:text-gold"
+              className="flex items-center"
+              aria-label={t.a11y.homeLink}
             >
-              {t.nav[item.key]}
+              <Logo className="h-10 w-auto max-w-[200px]" tagline={t.brand.tagline} />
             </a>
-          ))}
-          <div className="mt-8 flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher variant="light" />
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label={t.a11y.closeMenu}
+                className="flex h-11 w-11 items-center justify-center rounded-lg text-white"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  className="h-7 w-7"
+                  aria-hidden="true"
+                >
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Links */}
+          <nav className="flex flex-1 flex-col justify-center gap-1 px-6 py-6">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-white/10 py-4 font-display text-3xl text-white transition-colors duration-200 hover:text-gold"
+              >
+                {t.nav[item.key]}
+              </a>
+            ))}
+          </nav>
+
+          {/* Actions */}
+          <div className="flex flex-col gap-3 px-6 pb-8 pt-2">
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="w-full rounded-full bg-gold px-6 py-4 text-center text-base font-semibold text-navy"
+            >
+              {t.header.cta}
+            </a>
             <a
               href={site.phoneHref}
-              className="flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-semibold text-white"
+              className="flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-4 text-base font-semibold text-white"
             >
               <PhoneIcon className="h-5 w-5" />
               {t.common.call} {site.phone}
             </a>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="rounded-full bg-gold px-6 py-3.5 text-center font-semibold text-navy"
-            >
-              {t.header.cta}
-            </a>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
+import { setMobileMenuOpen } from "@/lib/mobileMenu";
 import { useI18n } from "@/lib/i18n/LanguageProvider";
 import { PhoneIcon } from "./Icons";
 import Logo from "./Logo";
@@ -21,8 +22,11 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    // Broadcast so the floating action bar can hide while the drawer is open.
+    setMobileMenuOpen(open);
     return () => {
       document.body.style.overflow = "";
+      setMobileMenuOpen(false);
     };
   }, [open]);
 
@@ -77,7 +81,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-white"
+            className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-lg text-white"
             aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             aria-expanded={open}
           >
@@ -103,9 +107,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — sits above the header bar content; the close button
+          (z-[60]) stays above it so it remains clickable. */}
       <div
-        className={`fixed inset-0 z-40 bg-navy-deep transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-50 bg-navy-deep transition-all duration-500 lg:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >

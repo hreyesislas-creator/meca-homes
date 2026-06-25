@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-deep"
+      className="relative flex min-h-[88svh] items-center overflow-hidden bg-navy-deep"
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -81,20 +81,6 @@ export default function Hero() {
               <PhoneIcon className="h-5 w-5 text-gold" />
               {t.common.call} {site.phone}
             </a>
-          </div>
-
-          {/* Mini stats */}
-          <div className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
-            {t.hero.stats.map((s) => (
-              <div key={s.k}>
-                <div className="font-display text-xl font-semibold text-gold sm:text-2xl">
-                  {s.k}
-                </div>
-                <div className="mt-1 text-xs leading-snug text-white/65 sm:text-sm">
-                  {s.v}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

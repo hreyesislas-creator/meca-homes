@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { useMobileMenuOpen } from "@/lib/mobileMenu";
 import { useI18n } from "@/lib/i18n/LanguageProvider";
 import { PhoneIcon, WhatsAppIcon } from "./Icons";
 
 export default function FloatingActions() {
   const { t } = useI18n();
   const [show, setShow] = useState(false);
+  const menuOpen = useMobileMenuOpen();
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 600);
@@ -15,6 +17,10 @@ export default function FloatingActions() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // The mobile drawer covers the whole screen; never let the bottom bar show
+  // through it. (Only affects the mobile bar — the menu is mobile-only.)
+  const barVisible = show && !menuOpen;
 
   return (
     <>
@@ -24,7 +30,7 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.floating.whatsappAria}
-        className={`fixed bottom-6 right-6 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-8px_rgba(37,211,102,0.6)] transition-all duration-500 hover:scale-110 lg:flex ${
+        className={`fixed bottom-6 right-6 z-30 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-8px_rgba(37,211,102,0.6)] transition-all duration-500 hover:scale-110 lg:flex ${
           show ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
         }`}
       >
@@ -33,8 +39,9 @@ export default function FloatingActions() {
 
       {/* Mobile sticky action bar */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 flex items-stretch gap-px border-t border-navy/10 bg-navy/95 backdrop-blur-md transition-transform duration-500 lg:hidden ${
-          show ? "translate-y-0" : "translate-y-full"
+        aria-hidden={!barVisible}
+        className={`fixed inset-x-0 bottom-0 z-30 flex items-stretch gap-px border-t border-navy/10 bg-navy/95 backdrop-blur-md transition-transform duration-500 lg:hidden ${
+          barVisible ? "translate-y-0" : "pointer-events-none translate-y-full"
         }`}
       >
         <a

@@ -10,7 +10,7 @@ export default function ServiceDetails() {
   const { t } = useI18n();
   return (
     <section
-      id="service-details"
+      id="services"
       className="relative bg-offwhite py-24 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">

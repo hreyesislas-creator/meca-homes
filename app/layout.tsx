@@ -68,6 +68,9 @@ export const metadata: Metadata = {
     title: "Meca Homes | Custom Home Builders in South Florida",
     description:
       "Custom home building, design-build, turn-key construction, and site work and shell construction across South Florida — Miami-Dade, Broward, and Palm Beach.",
+    // Logo share image (no house photography). og:image is emitted automatically
+    // from app/opengraph-image.png; this points the Twitter card at the same file.
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,

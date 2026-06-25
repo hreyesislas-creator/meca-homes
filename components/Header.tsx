@@ -31,6 +31,7 @@ export default function Header() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
@@ -106,11 +107,14 @@ export default function Header() {
           </button>
         </div>
       </div>
+      </header>
 
-      {/* Mobile menu — a single, solid, full-screen overlay. No transition, no
-          blur, no transparent panel, no nested z-index. Hidden on lg+ (desktop),
-          matching the desktop nav breakpoint so the tablet range keeps the
-          hamburger + overlay in sync. */}
+      {/* Mobile menu — a single, solid, full-screen overlay rendered as a sibling
+          of <header> (NOT a child). The scrolled header uses backdrop-blur, and a
+          backdrop-filter ancestor becomes the containing block for fixed-position
+          descendants — which previously clipped this overlay to the header's
+          height. Keeping it outside the header lets `fixed inset-0` cover the real
+          viewport. No transition, no blur, no transparent panel. Hidden on lg+. */}
       {open && (
         <div className="fixed inset-0 z-[9999] flex flex-col overflow-y-auto bg-[#081832] text-white lg:hidden">
           {/* Top row: logo · language · close */}
@@ -179,6 +183,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

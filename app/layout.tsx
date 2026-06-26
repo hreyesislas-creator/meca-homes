@@ -3,6 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import { site, services } from "@/lib/site";
 import { translations } from "@/lib/i18n/translations";
 import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 // English is the default/canonical content used for static SEO + schema.
@@ -222,6 +223,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body>
+        <GoogleAnalytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

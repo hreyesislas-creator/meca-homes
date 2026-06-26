@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { site } from "@/lib/site";
+import { event } from "@/lib/gtag";
 import { useI18n } from "@/lib/i18n/LanguageProvider";
 import Reveal from "./Reveal";
 import { ArrowIcon, CheckIcon, LockIcon } from "./Icons";
@@ -55,6 +56,12 @@ export default function LeadForm() {
       }
       setStatus("success");
       form.reset();
+
+      // GA4 lead-generation conversion.
+      event("generate_lead", {
+        event_category: "Lead",
+        event_label: "Contact Form",
+      });
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : f.errorGeneric);
